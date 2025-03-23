@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.0.1 (Python 3.12.4 on win32)" generated="2025-03-22T23:06:45.732783" rpa="false" schemaversion="5">
+<suite id="s1" name="Test" source="C:\TesteQazando\test">
+<suite id="s1-s1" name="Tests" source="C:\TesteQazando\test\tests.robot">
+<test id="s1-s1-t1" name="TC05: Login Inválido" line="40">
+<kw name="Abrir o navegador" owner="HomePage" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-03-22T23:06:46.029521" level="INFO">Opening browser 'chrome' to base url 'None'.</msg>
+<arg>browser=chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-03-22T23:06:46.029521" elapsed="2.346001"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-03-22T23:06:48.375522" elapsed="0.066372"/>
+</kw>
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2025-03-22T23:06:48.443918" level="INFO">Opening url 'https://automationpratice.com.br/'</msg>
+<arg>url=${URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2025-03-22T23:06:48.441894" elapsed="5.849783"/>
+</kw>
+<status status="PASS" start="2025-03-22T23:06:46.029521" elapsed="8.262156"/>
+</kw>
+<kw name="Dado que estou na home page do site e acesso a pagina de login de usuário" owner="HomePage">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${Login.Botao_login}</arg>
+<arg>timeout=10</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-03-22T23:06:54.293674" elapsed="0.062457"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-03-22T23:06:54.357130" level="INFO">Clicking element '//i[contains(@class,'fa fa-user')]'.</msg>
+<arg>${Login.Botao_login}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-22T23:06:54.356131" elapsed="0.132618"/>
+</kw>
+<status status="PASS" start="2025-03-22T23:06:54.292811" elapsed="0.195938"/>
+</kw>
+<kw name="Quando realizo login com email inválido" owner="LoginPage">
+<kw name="Get Window Handles" owner="SeleniumLibrary">
+<msg time="2025-03-22T23:06:54.491539" level="INFO">${handles} = ['E8C2259C4A9C8AC5972A94789F3A46E7']</msg>
+<var>${handles}</var>
+<doc>Returns all child window handles of the selected browser as a list.</doc>
+<status status="PASS" start="2025-03-22T23:06:54.489777" elapsed="0.001762"/>
+</kw>
+<kw name="Switch Window" owner="SeleniumLibrary">
+<arg>${handles}[-1]</arg>
+<doc>Switches to browser window matching ``locator``.</doc>
+<status status="PASS" start="2025-03-22T23:06:54.491539" elapsed="0.018049"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath=//h3[contains(.,'Login')]</arg>
+<arg>timeout=15</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-03-22T23:06:54.510133" elapsed="0.274566"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-03-22T23:06:54.785689" level="INFO">Typing text 'abnercampos446@' into text field 'xpath=//input[contains(@type,'text')]'.</msg>
+<arg>xpath=//input[contains(@type,'text')]</arg>
+<arg>${Email_invalido}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-22T23:06:54.785689" elapsed="0.193867"/>
+</kw>
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2025-03-22T23:06:54.979556" level="INFO">Typing password into text field 'xpath=//input[contains(@type,'password')]'.</msg>
+<msg time="2025-03-22T23:06:55.019383" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>xpath=//input[contains(@type,'password')]</arg>
+<arg>${PASSWORD_invalida}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-22T23:06:54.979556" elapsed="0.119865"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-03-22T23:06:55.099421" level="INFO">Clicking button '//button[contains(.,'login')]'.</msg>
+<arg>${Botao_login.Botao_acesso}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-22T23:06:55.099421" elapsed="0.119999"/>
+</kw>
+<status status="PASS" start="2025-03-22T23:06:54.489777" elapsed="0.729643"/>
+</kw>
+<kw name="Então o sistema exibir a mensagem de &quot;E-mail inválido&quot;" owner="LoginPage">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath=//div[@class='default-form-box'][contains(.,'E-mail*E-mail inválido.')]</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-03-22T23:06:55.219420" elapsed="0.029487"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2025-03-22T23:06:55.419643" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-5.png"&gt;&lt;img src="selenium-screenshot-5.png" width="800px"&gt;&lt;/a&gt;</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-03-22T23:06:55.249421" elapsed="0.170222"/>
+</kw>
+<status status="PASS" start="2025-03-22T23:06:55.219420" elapsed="0.200223"/>
+</kw>
+<doc>Teste que valida o login de um usuário com dados inválidos.</doc>
+<tag>TC05</tag>
+<status status="PASS" start="2025-03-22T23:06:46.027474" elapsed="9.392169"/>
+</test>
+<doc>Este arquivo contém os casos de teste Cadastro e Login e Logout no E-commerce Qazando Shop.</doc>
+<status status="PASS" start="2025-03-22T23:06:45.780664" elapsed="9.638979"/>
+</suite>
+<status status="PASS" start="2025-03-22T23:06:45.732783" elapsed="9.686860"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="1" fail="0" skip="0">TC05</stat>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="Test">Test</stat>
+<stat pass="1" fail="0" skip="0" id="s1-s1" name="Tests">Test.Tests</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
